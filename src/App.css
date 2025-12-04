@@ -1,0 +1,140 @@
+/* Fondo general */
+body {
+  background: rgb(67, 67, 206);
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+   display: flex;
+  justify-content: center;   /* Centra horizontal */
+  align-items: center;       /* Centra vertical */
+  min-height: 100vh;  
+}
+
+.app-container {
+  max-width: 800px;          /* ANTES 500px → ahora más ancho */
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.30);
+  padding: 40px;             /* Más espacio interno */
+  border-radius: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+  color: #fff;
+  transition: 0.3s;
+  j
+}
+
+.app-container:hover {
+  transform: scale(1.01);     /* efecto elegante */
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* FORMULARIO */
+.task-form {
+  display: flex;
+  gap: 10px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: white;
+  font-size: 16px;
+}
+
+.btn-add {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: #6c5ce7;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background: #4834d4;
+}
+
+/* LISTA */
+.task-list {
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* TARJETA DE TAREA */
+.task-card {
+  background: white;
+  color: #333;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.task-card:hover {
+  transform: scale(1.02);
+}
+
+.task-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  transform: scale(1.2);
+}
+/* Inputs nuevos */
+.task-form select,
+.task-form input[type="date"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  font-size: 15px;
+}
+
+/* Contenedor de información */
+.task-info {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  color: #666;
+}
+
+.buttons button {
+  margin-left: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 19px;
+}
+
+.edit-container input,
+.edit-container select {
+  margin-bottom: 8px;
+  padding: 8px;
+  width: 100%;
+}
