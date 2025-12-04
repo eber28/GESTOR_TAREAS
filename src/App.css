@@ -1,87 +1,104 @@
-/* Fondo general */
+/* ======== DISEÑO GENERAL ======== */
 body {
-  background: rgb(67, 67, 206);
+  background: linear-gradient(135deg, #4c57e0, #6f79f0);
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-   display: flex;
-  justify-content: center;   /* Centra horizontal */
-  align-items: center;       /* Centra vertical */
-  min-height: 100vh;  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
+/* ======== CONTENEDOR PRINCIPAL ======== */
 .app-container {
-  max-width: 800px;          /* ANTES 500px → ahora más ancho */
-  margin: 60px auto;
-  background: rgba(255, 255, 255, 0.30);
-  padding: 40px;             /* Más espacio interno */
-  border-radius: 25px;
+  width: 95%;
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
   color: #fff;
-  transition: 0.3s;
-  j
 }
 
 .app-container:hover {
-  transform: scale(1.01);     /* efecto elegante */
+  transform: scale(1.01);
 }
 
+/* ======== TÍTULO ======== */
 .title {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #ffffff;
 }
 
-/* FORMULARIO */
+/* ======== FORMULARIO ======== */
 .task-form {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
 }
 
-.task-form input {
+.task-form input,
+.task-form select,
+.task-form input[type="date"] {
   flex: 1;
+  min-width: 150px;
   padding: 12px;
   border-radius: 12px;
   border: none;
-  outline: none;
-  background: white;
+  background: #ffffff;
   font-size: 16px;
+  color: #333;
 }
 
+.task-form input::placeholder {
+  color: #777;
+}
+
+/* ======== BOTÓN AGREGAR ======== */
 .btn-add {
-  padding: 12px 18px;
+  padding: 12px 25px;
   border: none;
   border-radius: 12px;
   background: #6c5ce7;
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.25s ease;
+  white-space: nowrap;
 }
 
 .btn-add:hover {
-  background: #4834d4;
+  background: #5847e0;
+  transform: translateY(-2px);
 }
 
-/* LISTA */
+/* ======== LISTA DE TAREAS ======== */
 .task-list {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 0;
+  list-style: none;
 }
 
-/* TARJETA DE TAREA */
+/* ======== TARJETA DE TAREA ======== */
 .task-card {
-  background: white;
+  background: #ffffff;
   color: #333;
-  padding: 15px;
-  margin-bottom: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
   border-radius: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 17px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transition: transform 0.2s;
 }
 
@@ -91,31 +108,24 @@ body {
 
 .task-completed {
   text-decoration: line-through;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-.btn-delete {
+/* ======== BOTONES DE ACCIÓN ======== */
+.buttons button {
   background: transparent;
   border: none;
-  font-size: 20px;
+  margin-left: 10px;
+  font-size: 19px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
 }
 
-.btn-delete:hover {
-  transform: scale(1.2);
-}
-/* Inputs nuevos */
-.task-form select,
-.task-form input[type="date"] {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  background: white;
-  font-size: 15px;
+.buttons button:hover {
+  transform: scale(1.25);
 }
 
-/* Contenedor de información */
+/* ======== INFORMACIÓN EXTRA ======== */
 .task-info {
   font-size: 13px;
   display: flex;
@@ -124,17 +134,66 @@ body {
   color: #666;
 }
 
-.buttons button {
-  margin-left: 10px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  font-size: 19px;
-}
-
+/* ======== FORMULARIO DE EDICIÓN ======== */
 .edit-container input,
 .edit-container select {
-  margin-bottom: 8px;
-  padding: 8px;
   width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* ======== RESPONSIVIDAD ======== */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 25px;
+  }
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form input[type="date"] {
+    width: 100%;
+  }
+
+  .btn-add {
+    width: 100%;
+    font-size: 17px;
+  }
+
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+/* INPUT DATE VISIBLE EN FONDOS OSCUROS O TRANSPARENTES */
+input[type="date"] {
+  color: #ffffff;                                   /* Texto visible */
+  background: rgba(255, 255, 255, 0.15);            /* Fondo claro suave */
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* ÍCONO DEL CALENDARIO MÁS VISIBLE */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(180%) invert(100%);  /* Lo vuelve blanco y brillante */
+  opacity: 1;
 }
